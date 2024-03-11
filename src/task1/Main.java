@@ -3,15 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        System.out.println("enter path: ");
 
-        Scanner in = new Scanner(System.in);
-
-        ClassAnalyzator.analyze("null");
+        //ClassAnalyzator.analyze("null");
 
         Student student = new Student();
-        Class studentClass = student.getClass();
+        Class<?> studentClass = student.getClass();
 
-        ClassAnalyzator.analyze(studentClass);
+        ClassAnalyzator.analyze(java.lang.String.class);
     }
 }
