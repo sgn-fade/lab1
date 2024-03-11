@@ -4,14 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Arrays;
 
-/* packet name \/
-modes and class name \/
-base class \/
-interface list \/
-fields and methods, constructors
-*/
 public abstract class ClassAnalyzator {
     public static void analyze(String classPath) {
         try {
@@ -29,9 +22,13 @@ public abstract class ClassAnalyzator {
         stringData.append("package ").append(classObject.getPackageName()).append("\n");
         stringData.append(Modifier.toString(classObject.getModifiers())).append(" ").append(classObject.getSimpleName());
 
-        stringData.append(" implements ").append(Arrays.toString(classObject.getInterfaces())).append(" { \n");
+        stringData.append(" implements ");
+        Class<?>[] interfaces = classObject.getInterfaces();
+        for (Class<?> inter :interfaces) {
+            stringData.append("  ").append(inter.getSimpleName());
+        }
 
-        stringData.append("//fields\n");
+        stringData.append(" { \n//fields\n");
         Field[] declaredFields = classObject.getDeclaredFields();
         for (Field field :declaredFields) {
             stringData.append("  ").append(field).append("\n");
@@ -41,6 +38,7 @@ public abstract class ClassAnalyzator {
         for (Constructor<?> constructor : Constructors) {
             stringData.append("  ").append(constructor).append("\n");
         }
+
         stringData.append("//methods\n");
         Method[] declaredMethods =
                 classObject.getDeclaredMethods();
