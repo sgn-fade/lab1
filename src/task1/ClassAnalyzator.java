@@ -14,23 +14,25 @@ public abstract class ClassAnalyzator {
             System.out.println("Class was not found");
         }
     }
-    public static void analyze(Class<?>  classObject) {
+
+    public static void analyze(Class<?> classObject) {
         createMetaData(classObject);
     }
-    public static void createMetaData(Class<?> classObject){
+
+    public static void createMetaData(Class<?> classObject) {
         StringBuilder stringData = new StringBuilder();
         stringData.append("package ").append(classObject.getPackageName()).append("\n");
         stringData.append(Modifier.toString(classObject.getModifiers())).append(" ").append(classObject.getSimpleName());
 
         stringData.append(" implements ");
         Class<?>[] interfaces = classObject.getInterfaces();
-        for (Class<?> inter :interfaces) {
+        for (Class<?> inter : interfaces) {
             stringData.append("  ").append(inter.getSimpleName());
         }
 
         stringData.append(" { \n//fields\n");
         Field[] declaredFields = classObject.getDeclaredFields();
-        for (Field field :declaredFields) {
+        for (Field field : declaredFields) {
             stringData.append("  ").append(field).append("\n");
         }
         stringData.append("//constructors\n");
