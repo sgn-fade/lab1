@@ -20,7 +20,7 @@ public abstract class InvokeClass {
             throw new RuntimeException(e);
         }
         try {
-            method.invoke(ClassObj, paramValues);
+            method.invoke(classObject, paramValues);
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
