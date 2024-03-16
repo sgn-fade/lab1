@@ -6,6 +6,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public abstract class ClassAnalyzator {
+    private static String dataField;
+
+    public static String getDataField() {
+        return dataField;
+    }
+
     public static void analyze(String classPath) {
         try {
             Class<?> classObject = Class.forName(classPath);
@@ -47,6 +53,7 @@ public abstract class ClassAnalyzator {
         for (Method method : declaredMethods) {
             stringData.append("  ").append(method).append("\n");
         }
-        System.out.println(stringData);
+        dataField = stringData.toString();
+        //System.out.println(stringData);
     }
 }
