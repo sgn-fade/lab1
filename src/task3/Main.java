@@ -11,5 +11,9 @@ package task3;
                     new TypeSaver(double.class, 1.0),
                     new TypeSaver(double.class, 2.0)
             });
+            InvokeClass.outputMethodResult(calc, "mult", new TypeSaver[]{
+                    new TypeSaver(double.class, 1.0),
+                    new TypeSaver(double.class, 2.0)
+            });
         }
     }

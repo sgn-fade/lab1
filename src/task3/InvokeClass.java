@@ -17,7 +17,8 @@ public abstract class InvokeClass {
         try {
             method = ClassObj.getMethod(methodName, paramTypes);
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
+            System.out.println("invalid method");
+            return;
         }
         try {
             method.invoke(classObject, paramValues);

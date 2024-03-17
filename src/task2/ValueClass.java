@@ -5,8 +5,8 @@ public class ValueClass {
     public String name = "David";
     private final int y = 56;
 
-    public String getName() {
-        return name;
+    public void getName() {
+        System.out.println(name);
     }
 
     public void setName(String name) {

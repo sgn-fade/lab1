@@ -42,9 +42,11 @@ public abstract class ClassReader {
             return;
         }
         try {
-            declaredMethods[methodNumber].invoke(valueClass);
-        } catch (IllegalAccessException | InvocationTargetException e) {
+            declaredMethods[methodNumber - 1].invoke(valueClass);
+        } catch (IllegalAccessException | InvocationTargetException e){
             throw new RuntimeException(e);
+        }catch (IllegalArgumentException e){
+            System.out.println("can't invoke method with arguments");
         }
     }
 }
