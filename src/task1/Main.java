@@ -7,8 +7,5 @@ public class Main {
         Window flt = new Window();
         flt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         flt.setVisible(true);
-        ClassAnalyzator.analyze(java.lang.String.class);
-        System.out.println(ClassAnalyzator.getDataField());
-        //ClassAnalyzator.analyze("task1.Student");
     }
 }
