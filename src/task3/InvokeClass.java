@@ -20,6 +20,7 @@ public abstract class InvokeClass {
             System.out.println("invalid method");
             return;
         }
+
         try {
             method.invoke(classObject, paramValues);
         } catch (IllegalAccessException | InvocationTargetException e) {
